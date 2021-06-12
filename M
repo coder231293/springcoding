@@ -1,0 +1,7 @@
+package com.example.spring.example01; 
+import java.util.List; 
+public class MavenBuildRunner implements BuildRunner
+{	
+      private String mavenPath;		
+      public void build(List<string> srcDirs, String binDir)
+}
