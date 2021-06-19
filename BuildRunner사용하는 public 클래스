@@ -1,0 +1,25 @@
+package com.example.spring.example01; 
+
+import java.util.list; 
+
+public class Project{
+        private List<String> srcDirs;
+        private String binDir;
+        private BuildRunner buildRunner;
+        public void build() 
+        {
+                buildRunner.build(srcDirs, binDir);//buildRunner를 사용하여 클래스 설정
+         }
+         public void setSrcDirs(List<String> srcDirs)
+         {
+                this.srcDirs = srcDirs;//자기자신의 소스파일 경로를 srcDirs로 설정
+         }
+         public void setBinDir(String binDir)
+         {
+                this.binDir = binDir;//자기자신의 클래스파일 경로를 binDir로 설정
+         }
+         public void setBuildRunner(BuildRunner buildRunner)
+         {
+                this.buildRunner = buildRunner;
+         }
+}
