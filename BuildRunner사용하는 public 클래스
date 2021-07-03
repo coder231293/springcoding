@@ -20,6 +20,6 @@ public class Project{
          }
          public void setBuildRunner(BuildRunner buildRunner)
          {
-                this.buildRunner = buildRunner;
+                this.buildRunner = buildRunner;//Project가 사용할 buildRunner객체를 setBuildRunner메서드를 통해 설정
          }
 }
