@@ -10,9 +10,9 @@ public class Main{
           MavenBuildRunner buildRunner = new MavenBuildRunner();
           //MavenBuildRunner객체 생성
           Project sampleProject = new Project();
-          //Project클래스를 생성하고 setPropertyName형식의 메소드
+          //Project클래스를 생성하고 setPropertyName형식의 메소드를 이용하여 필요한 프로퍼티 설정
           List<String> srcDirs = new ArrayList<String>();
-
+          //buildRunner객체를 사용하도록 설정
           buildRunner.setMavenPath("c:\\apache-maven-3.1.1");
           srcDirs.add("src");
           srcDirs.add("srcResource");
