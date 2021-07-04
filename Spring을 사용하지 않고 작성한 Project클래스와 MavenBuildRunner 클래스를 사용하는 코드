@@ -1,0 +1,24 @@
+package com.example.spring.example01;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main{
+      
+      public static void main(String[] args)
+      {
+          MavenBuildRunner buildRunner = new MavenBuildRunner();
+          //MavenBuildRunner객체 생성
+          Project sampleProject = new Project();
+          //Project클래스를 생성하고 setPropertyName형식의 메소드
+          List<String> srcDirs = new ArrayList<String>();
+
+          buildRunner.setMavenPath("c:\\apache-maven-3.1.1");
+          srcDirs.add("src");
+          srcDirs.add("srcResource");
+          sampleProject.setSrcDirs(srcDirs);
+          sampleProject.setbinDir("bin");
+          sampleProject.setBuildRunner(buildRunner);
+          sampleProject.build();
+      }
+}
