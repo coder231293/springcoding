@@ -1,0 +1,29 @@
+package com.spring.example; 
+
+public class User{
+       private String id;
+       private String password; 
+
+       public User(String id, String password)//User객체마다 자신의 id, password 저장
+       {
+              this.id = id;
+              this.password = password;
+       }
+       public String getId()//User객체의 id를 가져오는 함수
+       {
+               return id;
+       }
+       public boolean matchPassword(String inputPassword)//id, password를 입력받아 해당 User객체의 id, password가 맞는지 알려주는 함수
+       {
+               return password.equals(inputPassword);
+       }
+       public void changePassword(String oldPassword, String newPassword)//User객체의 password를 바꿔주는 함수
+      {
+               if(!matchPassword(oldPassword))
+               //password가 틀린 경우 예외처리 시킴
+               {
+                        throw new IllegalArgumentException("illegal password");
+               }
+               password = newPassword;//새로운 password로 바꿈
+      }
+}
