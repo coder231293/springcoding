@@ -1,0 +1,21 @@
+package com.spring.example; 
+
+public class AutoFailLogger{
+          private int threshold;
+          private int failCounts; 
+
+          public void insertBadPassword(String id, String password)//잘못된 패스워드를 입력한 경우 나타나는 함수
+         {
+                   System.out.printf("AuthFail userId %s, password %s", id, password);
+                   failCount++;
+                   if(threshold > 0 && failCount >= threshold)
+                   {
+                            System.out.printf("너무 많은 로그인 실패로 인해 관리자한테 문의하세요");
+                            failCounts = 0;//관리자한테 문의 한 이후에 failCounts를 0으로 다시 초기화
+                   }
+         }
+         public void setThreshold(int threshold)//몇 번 실패해야 관리자한테 문의할 지를 정해주는 함수
+         {
+                 this.threshold = threshold;
+         }
+}
