@@ -1,0 +1,13 @@
+package com.spring.example; 
+
+public class AutoInfo{
+         private String id;
+         public AutoInfo(String id)
+         {
+                   this.id = id;//자기자신의 객체 id를 id로 설정
+         }
+         public String getId(String id)
+         {
+                  return id;
+         }
+}
