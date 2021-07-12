@@ -1,0 +1,7 @@
+//User를 찾지 못했을 때 발생
+package com.spring.example; 
+
+@SuppressWarnings("serial")//직렬화 가능 클래스에 대한 누락된 serialVersionUID 필드와 관련된 경고를 무시
+public class UserNotFoundException extends RuntimeException{ 
+
+}
