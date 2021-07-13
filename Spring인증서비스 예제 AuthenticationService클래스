@@ -1,0 +1,30 @@
+package com.spring.example;
+
+public void AuthenticationService{
+       private UserRepositary userRepositary;
+       private AutoFailLogger failLogger;
+
+       public AutoInfo authenticate(String id, String password)
+       {
+             User user = userRepositary.findUserById(id);//UserRepositary클래스에 있는 findUserById함수를 통해 User객체 user를 구함
+             if(user == null)
+             {
+                  throw new UserNotFoundException();user가 없기 때문에 UserNotFoundException함수로 error를 알림
+             }
+             if(!user.matchPassword(password))
+             {
+                  //비밀번호를 잘못 입력한 경우
+                  failLogger insertBadPassword(id, password);//로그인 실패기록 남김
+                  throw new AuthException();//비밀번호를 잘못 입력했으므로 AuthException함수로 error를 알림
+             }
+             return new AutoInfo(user.getId(id));
+       }
+       public void setUserRepositary(UserRepositary userRepositary)//UserRepositary를 설정하는 함수
+       {
+              this.userRepositary = UserRepositary;
+       }
+       public void SetFailLogger(AutoFailLogger failLogger)
+       {
+              this.failLogger = failLogger;
+       }
+}
