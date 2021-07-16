@@ -1,0 +1,7 @@
+
+package com.spring.example;
+
+@SuppressWarnings("serial")//
+public class AuthException extends RuntimeException{
+
+} 
