@@ -1,0 +1,17 @@
+package com.spring.example.config;
+
+import java.util.Arrays;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import com.spring.example.AuthFailLogger;
+import com.spring.example.AuthenticationService;
+import com.spring.example.PasswordChangeService;
+import com.spring.example.User;
+import com.spring.example.UserRepositary;
+
+@Configuration// 클래스를 스프링 설정으로 함
+public class Config {
+       
+}
