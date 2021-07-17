@@ -35,5 +35,19 @@ public class Config {
        {
             return new PasswordChangeService(userRepositary());
        }
-       
+       @Bean
+       public AutoFailLogger autoFailLogger()
+       {
+            AutoFailLogger logger = new AutoFailLogger();
+            logger.setThreshold(3);
+            return logger;
+       }
+       @Bean
+       public AuthenticationService authenticationService()
+       {
+            AuthenticationService authSvc = new AuthenticationService();
+            authSvc.setFailLogger(autoFailLogger());
+            authSvc.setUserRepositary(userRepositary());
+            return authSvc;
+       }
 }
