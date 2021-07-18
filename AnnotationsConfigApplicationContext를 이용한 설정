@@ -5,3 +5,26 @@ import org.springframework.comtext.annotation.AnnotationsConfigApplicationContex
 import com.spring.example.AuthenticationService;
 import com.spring.example.PasswordChangeService;
 import com.spring.example.config.Config;
+
+public class MainByJavaConfig{
+      public static void main(String[] args)
+      {
+            useSingleClass();
+      }
+      private static void useSingleClass()
+      {
+            AnnotationsConfigApplicationContext ctx = new AnnotationsConfigApplicationContext();
+            useBean(ctx);
+            ctx.close();
+      }
+      private static void useBean(AnnotationsConfigApplicationContext ctx)
+      {
+            AuthenticationService authSvc = ctx.getBean("authenticationService", AuthenticationService.class);
+            authSvc.authenticate("calcio1", "1111");
+
+            PasswordChangeService pwChgSvc = ctx.getBean(PasswordChangeService.class);
+            pwChgSvc changePassword("calcio1", "1111", "1234");
+      }
+}
+
+
