@@ -1,0 +1,7 @@
+package com.spring.example.main;
+
+import org.springframework.comtext.annotation.AnnotationsConfigApplicationContext;
+
+import com.spring.example.AuthenticationService;
+import com.spring.example.PasswordChangeService;
+import com.spring.example.config.Config;
