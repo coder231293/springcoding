@@ -1,0 +1,27 @@
+package com.spring.example.main; 
+import org.springframework.comtext.annotation.AnnotationsConfigApplicationContext; 
+import com.spring.example.AuthenticationService;
+import com.spring.example.PasswordChangeService;
+import com.spring.example.config.Config; 
+
+public class MainByJavaConfig
+{ 
+    public static void main(String[] args) 
+    { 
+       useSingleClass(); 
+    } 
+    private static void useSingleClass() 
+    { 
+       AnnotationsConfigApplicationContext ctx = new AnnotationsConfigApplicationContext(Config.class);//이 클래스의 생성자는 설정정보로 사용할 클래스를 parameter로 받음 
+       //객체를 생성한 뒤에는 @Bean annotation으로 설정한 Bean정보에 의해 Bean객체를 구할 수 있다 
+       useBean(ctx); 
+       ctx.close(); 
+    } 
+    private static void useBean(AnnotationsConfigApplicationContext ctx) 
+    { 
+       AuthenticationService authSvc = ctx.getBean("authenticationService", AuthenticationService.class); 
+       authSvc.authenticate("calcio1", "1111"); 
+       PasswordChangeService pwChgSvc = ctx.getBean(PasswordChangeService.class); 
+       pwChgSvc changePassword("calcio1", "1111", "1234");
+    }
+}
