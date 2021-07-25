@@ -1,0 +1,8 @@
+package com.spring.example.beans.factory;
+
+public interface FactoryBean<T>
+{
+     T getObject() throws Exception; //T getObject() : 실제 스프링 빈으로 사용된 객체 반환
+     Class<?> getObjectType();//스프링 빈으로 사용될 객체 반환
+     boolean isSingleton();//getObject()가 같은 객체를 리턴하면 true, 새로운 객체를 리턴하면 false를 리턴
+}
