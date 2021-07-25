@@ -1,3 +1,34 @@
 package com.spring.example.search;
 
-import 
+import org.springframework.beans.factory.FactoryBean;
+
+//SearchClientFactoryBean클래스가 생성할 bean타입이
+//SearchClientFactory이기 때문에 이것을 퍼리미터로 지정
+
+public class SearchClientFactoryBean implement FactoryBean<SearchClientFactory>
+{
+     private String server;
+     private int port;
+     private String contentType;
+     private String encoding = "utf8";
+
+     private SearchClientFactory searchClientFactory;
+
+     public void setServer(String server)
+     {
+          this.server = server;
+     }
+     public void setPort(int port)
+     {
+          this.port = port;
+     }
+     public void setContentType(String ContentType)
+     {
+          this.contentType = contentType;
+     }
+     public void setEncoding(String encoding)
+     {
+          this.encoding = encoding;
+     }
+}
+
