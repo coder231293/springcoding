@@ -31,6 +31,30 @@ public class SearchClientFactoryBean implement FactoryBean<SearchClientFactory>
           this.encoding = encoding;
      }
      @Override 
-     public SearchClientFactory getObject() throws Exception
+     public SearchClientFactory getObject() throws Exception//getObject()메서드를 구현한 코드 bean객체로 사용될 SearchClientFactory를 생성하고 이를 리턴함 
+     {
+          if(this.SearchClientFactory != null)//null이 아니면 자기자신의 searchClientFactory를 리턴 
+          {
+               return this.searchClientFactory; 
+          }
+          SearchClientFactoryBuilder builder = new SearchClientFactoryBuilder();
+          builder.sercer(server).port(port).contentType(contentType == null ? : "json" : contentType).encoding(encoding);
+          SearchClientFactory searchClientFactory = builder.build();
+          searchClientFactory.init();
+          this.searchClientFactory = searchClientFactory;
+          return this.searchClientFactory;
+     }
+     @Override 
+     public Class getObjectType()
+     {
+          //이 메서드는 스프링이 사용될 bean타입을 리턴하는데 여기서는 searchClientFactory타입을 그대로 이용
+          return SearchClientFactory.class;
+     }
+     @Override 
+     public boolean isSingleton()
+     {
+          //getObject()메서드가 동일한 객체를 리턴하므로 true를 리턴함
+          return true;
+     }
 }
 
