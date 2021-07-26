@@ -1,0 +1,5 @@
+public class OrderService 
+{
+   @Autowired(required == false)//스프링 Bean이 존재하지 않은 경우 예외를 발생시키지 않고 null값으로 유지시키기 위해 사용
+   private Monitor monitor;
+}
