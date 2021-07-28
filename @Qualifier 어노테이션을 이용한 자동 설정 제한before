@@ -1,0 +1,10 @@
+public class ProductService
+{
+     private SearchClientFactory searchClientFactory;
+
+     @Autowired
+     public void setSearchClientFactory(SearchClientFactory searchClientFactory)
+     {
+           this.searchClientFactory = searchClientFactory;
+     }  
+}
