@@ -1,0 +1,25 @@
+package com.spring.example.shop;
+
+import javax.annotation.Resource;
+import com.spring.example.search SearchClientFactory;
+import com.spring.example.search.SearchDocument;
+
+public class ProductService
+{
+     private SearchClientFactory searchClientFactory;
+     
+     @Resource(name = "productSearchClientFactory")//name속성은 사용할 Bean객체이름으로 정함
+     public void setSearchClientFactory(SearchClientFactory searchClientFactory)
+     {
+           this.searchClientFactory = searchClientFactory;
+     }
+
+     public void createProduct(ProductInfo pi)
+     {
+           searchClientFactory.create().addDocument(toSearchDocument(pi));
+     }
+     private SearchDocument toSearchDocument(ProductInfo pi)
+     {
+           return new SearchDocument(pi);
+     }
+}
