@@ -1,0 +1,14 @@
+package com.springframework.beans.factory.annotation.Qualifier;
+
+public class OrderService 
+{
+    private ErpClientFactory erpClientFactory;
+    private SearchClientFactory searchClientFactory;
+
+    public OrderService(ErpClientFactory erpClientFactory, @Qualifier("order") SearchClientFactory searchClientFactory)
+    {
+          //@Autowired가 적용된 메서드나 2개이상의 파라미터를 갖는경우에 파라미터에 @Qualifier어노테이션을 적용함
+          this.erpClientFactory = erpClientFactory;
+          this.searchClientFactory = searchClientFactory;
+    }
+}
