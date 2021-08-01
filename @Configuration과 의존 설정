@@ -16,7 +16,7 @@ public class config2
     {
         return new User("calcio1", "1111");
     }
-    @Bean(name = "user2")
+    @Bean(name = "user2")//name을 user2로 설정
     public User user
     {
         return new User("calcio2", "2222");
