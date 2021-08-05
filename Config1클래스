@@ -1,1 +1,42 @@
+package com.spring.example.config; 
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import java.util.Arrays; 
+
+import com.spring.example.AuthFailLogger;
+import com.spring.example.AuthenticationService;
+import com.spring.example.PasswordChangeService;
+import com.spring.example.UserRepositary;
+
+@Configuration 
+public class Config1
+{
+     @Autowired
+     private UserRepositary userRepositary;
+     
+
+     @Bean
+     public PasswordChangeService pwChangeSvc()
+     {
+           return new PasswordChangeService(userRepositary);
+     }
+
+     @Bean
+     public AutoFailLogger autoFailLogger()
+     {
+           AutoFailLogger logger = new AutoFailLogger();
+           logger.setThreshold(5);
+           return logger;
+     }
+     @Bean
+     public AuthenticationService authenticationService()
+     {
+           AuthenticationService authSvc = new AuthenticationService();
+           authSvc.setFailLogger(AutoFailLogger);
+           authSvc.setUserRepositary(userRepositary);
+           return authSvc;
+     }
+}
