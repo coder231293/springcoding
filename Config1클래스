@@ -14,12 +14,12 @@ import com.spring.example.UserRepositary;
 @Configuration 
 public class Config1
 {
-     @Autowired
+     @Autowired//userRepositary필드에 일치하는 스프링 Bean객체를 할당
      private UserRepositary userRepositary;
      
 
      @Bean
-     public PasswordChangeService pwChangeSvc()
+     public PasswordChangeService pwChangeSvc()//UserRepositary타입의 Bean객체 필요
      {
            return new PasswordChangeService(userRepositary);
      }
@@ -32,7 +32,7 @@ public class Config1
            return logger;
      }
      @Bean
-     public AuthenticationService authenticationService()
+     public AuthenticationService authenticationService()//UserRepositary타입의 Bean객체 필요
      {
            AuthenticationService authSvc = new AuthenticationService();
            authSvc.setFailLogger(AutoFailLogger);
@@ -40,3 +40,35 @@ public class Config1
            return authSvc;
      }
 }
+
+package com.spring.example.config; 
+
+import java.util.Arrays; 
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration; 
+import com.spring.example.User;
+import com.spring.example.UserRepositary; 
+
+@Configuration//@Configuration을 이용한 설정에서는 @Bean어노테이션이 적용된 메서드를 참조하는 방식으로 의존객체를 참조 
+public class config2//UserRepositary타입의 Bean객체 정의
+{ 
+     @Bean 
+     public User user1 
+     { 
+         return new User("calcio1", "1111");
+     } 
+     @Bean(name = "user2")
+     public User user 
+     { 
+         return new User("calcio2", "2222");
+     } 
+     @Bean 
+     public UserRepositary userRepositary() 
+     { 
+         UserRepositary userRepo = new UserRepositary(); 
+         userRepo.setUserList(Arrays.setList(user1(), user()); 
+         return userRepo; 
+     }
+}
+//이렇게 다른 @Configuration 클래스에 정의한 Bean을 참조할 때 @Autowired나 @Resource 등의 어노테이션을 사용하면됨
