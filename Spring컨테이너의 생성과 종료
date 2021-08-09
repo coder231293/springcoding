@@ -1,0 +1,20 @@
+GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath.config.xml");
+//Bean 메타정보를 컨테이너 생성 지점에 제공해서 Bean객체 생성
+
+GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
+//컨테이너 생성
+
+ctx.load("classpath.config.xml");
+//메타 정보 제공
+
+ctx.refresh();
+//Bean객체 생성(읽어온 메타정보를 기반으로 생성)
+
+AuthenticationService authSvc = new AuthenticationService("authenticationService", AuthenticationService.class);
+//컨테이너 사용
+
+ctx.close();
+//컨테이너 종료
+
+ctx.registerShutdownHook();
+//JVM이 종료될 때 컨테이너도 종료과정이 실행됨
