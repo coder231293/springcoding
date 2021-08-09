@@ -1,0 +1,8 @@
+public interface InitializingBean//Bean의 초기화과정에서 실행될 메서드를 정의
+{
+    void afterPropertiesSet() throws Exception;
+}
+public interface DisposableBean//Bean의 소멸과정에서 실행될 메서드를 정의
+{
+    void destory() throws Exception;
+}
