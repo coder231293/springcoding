@@ -1,0 +1,9 @@
+package com.spring.example.db;
+
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+
+public class ConnectionPoll implement DisposableBean, InitializingBean
+{
+
+}
