@@ -5,5 +5,12 @@ import org.springframework.beans.factory.InitializingBean;
 
 public class ConnectionPoll implement DisposableBean, InitializingBean
 {
-
+     public interface InitializingBean//커넥션 풀 초기화 실행, DB커넥션 여는 코드
+     { 
+          void afterPropertiesSet() throws Exception;
+     }
+     public interface DisposableBean//커넥션 풀 종료 실행, 오픈한 DB커넥션 닫는 코드
+     { 
+          void destory() throws Exception;
+     }
 }
