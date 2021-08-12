@@ -1,0 +1,19 @@
+package com.spring.example.db;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestory;
+
+public class ConnectionPool2
+{
+     @PostConstruct
+     public void initPool()//db커넥션 여는 코드
+     {
+          System.println("ConnectionPool2.initPool()");
+     }
+     @PreDestory
+     public void destoryPool()//db커넥션 닫는 코드
+     {
+          System.println("ConnectionPool2.destoryPool()");
+     }
+}
+
