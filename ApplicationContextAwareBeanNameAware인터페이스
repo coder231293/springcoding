@@ -1,0 +1,6 @@
+public interface ApplicationContextAware extends Aware
+{
+     void setApplicationContext(ApplicationContext applicationContext) throws BeansException;
+     //ApplicationContextAware을 상속받은 Bean객체는 초기화과정에서 컨테이너(ApplicationContext)를 전달받음
+     //BeanNameAware : 이 인터페이스를 상속받은 Bean객체는 초기화과정에서 Bean을 전달받음
+}
