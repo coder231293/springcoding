@@ -1,0 +1,21 @@
+//스프링은 싱글톤을 기본 값으로 잡기 때문에 별도 설정을 하지 않으면
+//Bean은 싱글톤을 기본값으로 잡음
+
+package com.spring.example.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+import com.spring.example.db.ConnectionPool1;
+
+@Configuration 
+public class ConfigForLifecycle
+{
+    @Bean
+    @Scope("singleton")
+    public ConnectionPool1 ConnectionPool1()
+    {
+        return new ConnectionPool1();
+    }
+}
+//별도 설정을 하지 않을 경우 생성을 1번만 함, getBean()메서드를 2번이상 호출해서 Bean을 구하면 매번 동일한 Bean객체를 반환함 
