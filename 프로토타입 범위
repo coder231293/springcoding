@@ -1,0 +1,11 @@
+public void makeAndRunWork()
+{
+     for(long i = 1; i <= 5; i++)
+     {
+          Work work = new Work();
+          work.setTimeout(2012);//5번 고정되는 고정값
+          work.setType(2012);//5번 고정되는 고정값
+          work.setOrder(order);
+          workRunner.execute(work);
+     }
+}
