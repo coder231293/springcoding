@@ -8,8 +8,8 @@ public class MainByEnvOfJava
      public static void main(string[] args)
      {
             AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
-            ConfigurableEnvironment env = ctx.getEnvironment();
-            String javaVersion = env.getProperty("java.version");
+            ConfigurableEnvironment env = ctx.getEnvironment();//Environment를 구함
+            String javaVersion = env.getProperty("java.version");//Environment가 제공하는 프로퍼티 관련 메서드 이용
             System.out.println("java version : %s", javaVersion);
             ctx.close();
      }
