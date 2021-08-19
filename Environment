@@ -1,0 +1,16 @@
+package com.spring.example.main;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.core.env.ConfigurableEnvironment;
+
+public class MainByEnvOfJava
+{
+     public static void main(string[] args)
+     {
+            AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
+            ConfigurableEnvironment env = ctx.getEnvironment();
+            String javaVersion = env.getProperty("java.version");
+            System.out.println("java version : %s", javaVersion);
+            ctx.close();
+     }
+}
