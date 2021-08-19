@@ -1,0 +1,4 @@
+//java 명령어를 실행할 때 -D 옵션을 지정하는 방법
+$ java -Djdbc.user=dbuser1
+//System.setProperty()메서드를 사용하는 방법
+System.setProperty("jdbc.user", "dbuser1");
