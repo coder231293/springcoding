@@ -14,6 +14,10 @@ public class MainByEnvOfJava
            AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
            ConfigurableEnvironment env = ctx.getEnvironment();
            MutablePropertySource ps = env.getPropertySource();
-           ps.addLast(new getPropertySource("classpath:/db.properties");
+           ps.addLast(new getPropertySource("classpath:/db.properties"));//파라미터로 전달된 PropertySource를 맨 마지막에 등록 -> 제일 낮은 우선순위
+           //ps.addFirst(new getPropertySource("classpath:/db.properties"));// 파라미터로 전달된 PropertySource를 맨 처음에 등록 -> 제일 높은 우선순위
+           String dbuser = env.getProperty("db.user");
+           System.out.println("db.user = %s￦n", db.user);
+           ctx.close();
      }
 }
