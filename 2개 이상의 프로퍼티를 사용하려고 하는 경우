@@ -1,0 +1,8 @@
+@Configuration 
+@PropertySource(
+     value={"classpath:/db.properties", "classpath:/app.properties"}
+     ignoreResourceNotFound = true
+)
+//...
+//2개 이상의 프로퍼티를 사용하려고 하는 경우에는 @PropertySource를 배열값으로 지정하면 됨
+//자원이 없는 경우 무시하고 싶다면 ignoreResourceNotFound를 true로 지정하면 됨
