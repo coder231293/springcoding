@@ -1,0 +1,7 @@
+@Configuration 
+@PropertySources(
+   @PropertySource("classpath:/db.properties")
+   @PropertySource(value="classpath:/app.properties", ignoreResourceNotFound = true
+)
+//...
+//@PropertySource를 2개이상 설정하는 경우에는 @PropertySources 어노테이션을 사용하는 방법도 있음
