@@ -1,0 +1,9 @@
+package com.springframework.context;
+
+import org.springframework.beans.factory.Aware;
+import org.springframework.core.env.Environment;
+
+public interface EnvironmentAware extends Aware
+{
+      public void setEnvironment(Environment environment);
+}
