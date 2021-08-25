@@ -1,0 +1,13 @@
+setLocation(Resource location)
+location을 프로퍼티파일로 사용
+setLocations(Resource[] location)
+location을 프로퍼티파일로 사용
+setFileEncoding(String encoding)
+프로퍼티 파일을 읽을 때 사용할 인코딩 지정 지정하지않는경우에는
+Java 프로퍼티 파일 인코딩을 따름
+setIgnoreResourceNotFound(boolean b)
+파라미터에 true을 넘기면 자원을 발견할 수 없어도
+Exception을 발생시키지않고 넘어감
+setIgnoreUnresolvablePlaceholders(boolean b)
+파라미터에 true을 넘기면 플레이스홀더에 해당하는 프로퍼티가 없어도
+Exception을 발생시키지않고 넘어감
