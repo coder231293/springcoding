@@ -1,0 +1,12 @@
+package com.spring.example.context;
+
+import java.util.Locale;
+import org.springframework.lang.Nullable;
+
+public interface MessageSource
+{
+    @Nullable
+    String getMessages(String code, @Nullable Object[] args, Locale locale);
+    //locale에 따라 알맞은 메시지 리턴, 해당 메시지가 없으면 기본 메시지 리턴
+}
+
